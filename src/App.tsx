@@ -22,7 +22,7 @@ const files = {
                   name: "src",
                   children: [
                     {
-                      name: "package.json",
+                      name: "eslintrcpackage.json",
                     },
                   ],
                 },
@@ -32,7 +32,7 @@ const files = {
         },
       ],
     },
-    { name: "package.json" },
+    { name: "rootpackage.json" },
     { name: "src", children: [{ name: "App.css" }, { name: "App.tsx" }] },
   ],
 };
@@ -62,7 +62,7 @@ const FileComponent = ({ file, level }: FileComponentProps) => {
         >
           {displayChildren ? "-" : "+"} {file.name}
         </button>
-        <input></input>
+
         {displayChildren &&
           file.children.map((childrenFile: any) => (
             <FileComponent file={childrenFile} level={level + 1} />
@@ -72,12 +72,9 @@ const FileComponent = ({ file, level }: FileComponentProps) => {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
-      <p style={{ paddingLeft: padding }} key={file.name}>
-        {file.name}
-      </p>
-      <input></input>
-    </div>
+    <p style={{ paddingLeft: padding }} key={file.name}>
+      {file.name}
+    </p>
   );
 };
 
